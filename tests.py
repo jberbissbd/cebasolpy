@@ -170,6 +170,3 @@ class tests_agents_bbdd_formats(unittest.TestCase):
         format_instalador = secrets.choice(instalador_prova.instaladors)
         assert isinstance(format_instalador, InstaladorBBDD), "Error en el format de la lectura de la taula instaladors"
 
-    connector_bbdd_prova = ConnectorBBDD()
-    connector_bbdd_prova.localitzacio = "prova"
-    connector_taula_prova = ConnectorTaula(connector_bbdd_prova)
