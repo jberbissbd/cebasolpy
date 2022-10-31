@@ -1,26 +1,20 @@
-from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWidgets import QApplication, QLabel
-from agents_interficie import ProjecteInterficie
-from gui import  VisorCoordenades
-import sys
-
-from PySide6.QtCore import Qt, QUrl
+from agents_interficie import ProjecteInterficie, ClientsInterficie
 
 
 a = ProjecteInterficie()
+b = ClientsInterficie()
 llistat = []
+llista_clients = []
 for projecte in a.projectes:
-    info_buscada = [projecte.id,projecte.data,projecte.codi,projecte.client.nom,projecte.tarifa.descripcio,
+    info_buscada = [projecte.id, projecte.data, projecte.codi, projecte.client.nom, projecte.tarifa.descripcio,
                     projecte.tipus.codi]
     llistat.append(info_buscada)
+for clients in b.clients:
+    info_buscada_clients = [clients.id,clients.codi,clients.nom]
+    llista_clients.append(info_buscada_clients)
 print(llistat)
+print(llista_clients)
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    visor = VisorCoordenades()
-    visor.show()
-
-    sys.exit(app.exec())
 
 
 

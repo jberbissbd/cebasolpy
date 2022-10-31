@@ -44,8 +44,9 @@ class ProjecteInterficie:
             projecte[9] = self.obtencio_instalador_projecte(projecte[9])
         # Convertim cada element de la llista al format de missatgeria:
         for projecte in llista_projectes:
-            projecte_codificat = ProjecteGUI(projecte[0],projecte[1],projecte[2],projecte[3],projecte[4],projecte[5],
-                                          projecte[6],projecte[7],projecte[8],projecte[9])
+            projecte_codificat = ProjecteGUI(projecte[0], projecte[1], projecte[2], projecte[3], projecte[4],
+                                             projecte[5],
+                                             projecte[6], projecte[7], projecte[8], projecte[9])
             projectes_codificats.append(projecte_codificat)
         return projectes_codificats
 
@@ -122,5 +123,6 @@ class ProjecteInterficie:
         raise LookupError("No s'ha trobat la referència d'operador")
 
 
-a = ProjecteInterficie()
-a.lectura_projectes()
+class ClientsInterficie:
+    def __init__(self):
+        self.clients = dades_clients.clients

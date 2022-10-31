@@ -11,13 +11,16 @@ class ConnectorBBDD:
 
 
 class ConnectorTaula(ConnectorBBDD):
-    """Classe genèrica per conectar amb la base de dades"""
+    """Classe genèrica per connectar amb la base de dades"""
 
     def __init__(self, taula):
         super().__init__()
-        self.connexio = sqlite3.connect(self.localitzacio)
-        self.cursor = self.connexio.cursor()
         self.taula = taula
+        try:
+            self.connexio = sqlite3.connect(self.localitzacio)
+            self.cursor = self.connexio.cursor()
+        except sqlite3.OperationalError:
+            raise sqlite3.OperationalError
 
 
 class ConnectorProjectes(ConnectorTaula):
